@@ -1,102 +1,164 @@
+/* Import Google Fonts - Sudah ada di HTML */
+
+/* Variabel CSS untuk konsistensi warna */
+:root {
+    --primary-blue: #007bff;
+    --dark-blue: #0056b3;
+    --background-dark: #1a1a1a; /* Sangat gelap, hampir hitam */
+    --background-light: #2c2c2c; /* Agak terang dari dark, untuk kontras */
+    --text-light: #e0e0e0; /* Putih keabu-abuan untuk teks */
+    --text-dark: #ffffff; /* Putih murni untuk heading/penting */
+    --border-color: rgba(255, 255, 255, 0.1); /* Border tipis putih transparan */
+    --shadow-dark: rgba(0, 0, 0, 0.4);
+    --shadow-light: rgba(0, 0, 0, 0.2);
+}
+
 /* General Body Styles */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    line-height: 1.6;
-    color: #333; /* Dark grey for text */
-    background-color: #f8f8f8; /* Off-white background */
+    line-height: 1.8; /* Lebih lega */
+    color: var(--text-light); /* Warna teks umum */
+    background-color: var(--background-dark); /* Latar belakang gelap */
+    scroll-behavior: smooth; /* Scrolling halus */
 }
 
 .container {
-    width: 85%;
-    max-width: 1000px;
+    width: 90%; /* Sedikit lebih lebar */
+    max-width: 1100px; /* Batas lebar maksimal */
     margin: auto;
     overflow: hidden;
-    padding: 20px 0;
+    padding: 30px 0; /* Padding vertikal */
 }
 
 /* Header Styles */
 header {
-    background: #000; /* Solid Black header */
-    color: #fff;
+    background: var(--background-dark); /* Tetap hitam */
+    color: var(--text-dark); /* Teks putih murni */
     padding: 40px 0;
     text-align: center;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.3); /* Stronger shadow */
+    box-shadow: 0 5px 15px var(--shadow-dark); /* Bayangan lebih kuat */
+    border-bottom: 1px solid var(--border-color); /* Garis bawah halus */
+    position: sticky; /* Membuat header tetap di atas saat scroll */
+    top: 0;
+    z-index: 1000; /* Pastikan di atas elemen lain */
+}
+
+.header-content {
+    display: flex; /* Menggunakan flexbox */
+    justify-content: space-between; /* Konten tersebar */
+    align-items: center; /* Konten di tengah vertikal */
+    flex-wrap: wrap; /* Agar responsif di layar kecil */
+    gap: 20px; /* Jarak antar item */
+}
+
+.profile-info {
+    display: flex;
+    align-items: center;
+    gap: 20px;
 }
 
 .profile-pic {
-    width: 160px;
-    height: 160px;
+    width: 120px; /* Ukuran foto lebih kecil sedikit */
+    height: 120px;
     border-radius: 50%;
     object-fit: cover;
-    border: 6px solid #007bff; /* Blue border for profile pic */
-    margin-bottom: 20px;
-    box-shadow: 0 0 15px rgba(0, 123, 255, 0.4); /* Blue glow effect */
+    border: 4px solid var(--primary-blue); /* Border biru */
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.6); /* Glow biru lebih kuat */
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile-pic:hover {
+    transform: scale(1.05) rotate(2deg); /* Efek zoom & putar sedikit saat hover */
+}
+
+.text-info {
+    text-align: left; /* Teks nama & tagline rata kiri */
 }
 
 header h1 {
-    margin: 10px 0 5px;
-    font-size: 3em; /* Slightly larger font */
-    text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
-    letter-spacing: 1px;
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    font-size: 2.8em;
+    font-weight: 700; /* Bold */
+    text-shadow: 2px 2px 5px var(--shadow-dark);
+    letter-spacing: 0.5px;
 }
 
 .tagline {
-    font-size: 1.3em; /* Slightly larger */
-    margin-bottom: 30px;
-    font-weight: 400;
-    color: #b0d0ff; /* Lighter blue for tagline */
+    font-size: 1.1em;
+    margin-top: 5px;
+    margin-bottom: 0;
+    font-weight: 300;
+    color: var(--text-light); /* Teks tagline lebih ringan */
 }
 
-header nav ul {
+.main-nav ul {
     padding: 0;
     list-style: none;
     display: flex;
-    justify-content: center;
-    gap: 40px; /* Increased gap */
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center; /* Pusatkan di layar kecil */
 }
 
-header nav ul li a {
-    color: #fff;
+.main-nav ul li a {
+    color: var(--text-light);
     text-decoration: none;
-    font-weight: bold;
-    font-size: 1.15em; /* Slightly larger font */
-    padding: 10px 20px;
-    border-radius: 8px; /* More rounded corners */
-    transition: background 0.3s ease, transform 0.2s ease, color 0.3s ease;
-    border: 1px solid transparent; /* Border for hover effect */
+    font-weight: 500;
+    font-size: 1.05em;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden; /* Untuk efek garis bawah */
 }
 
-header nav ul li a:hover {
-    background: #007bff; /* Blue background on hover */
-    color: #fff; /* White text on hover */
-    transform: translateY(-5px); /* More pronounced lift effect */
-    border: 1px solid #fff; /* White border on hover */
+.main-nav ul li a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 2px;
+    background-color: var(--primary-blue);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-out;
 }
+
+.main-nav ul li a:hover {
+    color: var(--primary-blue); /* Teks jadi biru saat hover */
+    transform: translateY(-2px);
+}
+
+.main-nav ul li a:hover::after {
+    transform: translateX(0); /* Garis bawah muncul */
+}
+
 
 /* Section Styles */
 section {
-    padding: 60px 0; /* More padding */
+    padding: 80px 0; /* Padding lebih besar untuk ruang antar bagian */
     margin-bottom: 30px;
-    background: #fff; /* White background for sections */
-    border-radius: 12px; /* More rounded corners */
-    box-shadow: 0 8px 20px rgba(0,0,0,0.1); /* Softer, larger shadow */
-    transition: transform 0.3s ease;
-}
-
-section:hover {
-    transform: translateY(-5px); /* Slight lift on section hover */
+    background: var(--background-light); /* Latar belakang agak terang dari dark */
+    border-radius: 15px; /* Lebih membulat */
+    box-shadow: 0 10px 30px var(--shadow-dark); /* Bayangan lebih dalam */
+    overflow: hidden; /* Pastikan konten tidak keluar dari border-radius */
+    border: 1px solid var(--border-color); /* Border halus */
 }
 
 section h2 {
+    font-family: 'Montserrat', sans-serif;
     text-align: center;
-    margin-bottom: 50px;
-    color: #007bff; /* Blue heading */
-    font-size: 3em; /* Larger heading */
+    margin-bottom: 60px; /* Jarak lebih jauh dari konten */
+    color: var(--primary-blue); /* Heading biru */
+    font-size: 3.5em; /* Heading lebih besar */
+    font-weight: 700;
     position: relative;
     padding-bottom: 20px;
-    letter-spacing: 1.5px;
+    letter-spacing: 2px;
+    text-transform: uppercase; /* Huruf kapital semua */
 }
 
 section h2::after {
@@ -105,58 +167,67 @@ section h2::after {
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
-    width: 100px; /* Wider underline */
-    height: 5px; /* Thicker underline */
-    background-color: #007bff;
+    width: 120px; /* Garis bawah lebih lebar */
+    height: 5px;
+    background-color: var(--primary-blue);
     border-radius: 3px;
-}
-
-.bg-light {
-    background-color: #eef5ff; /* Very light blue background */
 }
 
 /* About Section */
 #tentang p {
-    font-size: 1.2em; /* Larger text */
-    text-align: center; /* Centered text */
-    max-width: 800px;
-    margin: 0 auto 20px;
-    color: #444;
+    font-size: 1.15em;
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto 25px;
+    color: var(--text-light);
+    line-height: 1.9;
 }
 
 #tentang strong {
-    color: #0056b3; /* Darker blue for strong text */
+    color: var(--primary-blue); /* Penekanan biru */
+    font-weight: 600;
 }
 
 /* Skills Section */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 35px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 40px;
     text-align: left;
 }
 
 .skill-item {
-    background: #fdfdfd;
-    padding: 30px;
+    background: var(--background-dark); /* Background item skill gelap */
+    padding: 35px;
     border-radius: 10px;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px var(--shadow-light);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-left: 5px solid #007bff; /* Blue left border */
+    border-left: 5px solid var(--primary-blue); /* Border kiri biru */
+    color: var(--text-light);
 }
 
 .skill-item:hover {
-    transform: translateY(-8px);
-    box-shadow: 0 8px 15px rgba(0,0,0,0.2);
+    transform: translateY(-10px); /* Lift lebih tinggi */
+    box-shadow: 0 12px 25px var(--shadow-dark); /* Bayangan lebih dalam */
 }
 
 .skill-item h3 {
-    color: #333;
+    font-family: 'Montserrat', sans-serif;
+    color: var(--text-dark); /* Heading item skill putih */
     margin-top: 0;
-    margin-bottom: 20px;
-    border-bottom: 1px dashed #ddd; /* Dashed border */
+    margin-bottom: 25px;
+    border-bottom: 1px dashed var(--border-color);
     padding-bottom: 15px;
-    font-size: 1.8em;
+    font-size: 2em;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px; /* Jarak ikon & teks */
+}
+
+.skill-item h3 .fas, .skill-item h3 .fab {
+    color: var(--primary-blue); /* Ikon di heading biru */
+    font-size: 1.2em;
 }
 
 .skill-item ul {
@@ -165,73 +236,18 @@ section h2::after {
 }
 
 .skill-item ul li {
-    margin-bottom: 12px;
+    margin-bottom: 15px;
     font-size: 1.1em;
     display: flex;
     align-items: center;
-    color: #555;
+    color: var(--text-light);
 }
 
-.skill-icon {
-    font-size: 1.5em; /* Larger icons */
-    margin-right: 12px;
-    color: #007bff;
+.skill-item ul li .fas, .skill-item ul li .fab {
+    font-size: 1.3em;
+    margin-right: 15px;
+    color: var(--primary-blue);
 }
-
-/* Projects Section styles are removed as the section is removed from HTML */
-/*
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 40px;
-}
-
-.project-item {
-    background: #fdfdfd;
-    padding: 35px;
-    border-radius: 10px;
-    box-shadow: 0 3px 15px rgba(0,0,0,0.15);
-    text-align: center;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-bottom: 4px solid #007bff;
-}
-
-.project-item:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
-}
-
-.project-item h3 {
-    color: #222;
-    margin-top: 0;
-    font-size: 2em;
-    margin-bottom: 15px;
-}
-
-.project-item p {
-    font-size: 1.05em;
-    color: #666;
-    margin-bottom: 25px;
-}
-
-.project-item .project-link {
-    display: inline-block;
-    padding: 15px 30px;
-    background: #007bff;
-    color: #fff;
-    text-decoration: none;
-    border-radius: 8px;
-    transition: background 0.3s ease, transform 0.2s ease;
-    font-weight: bold;
-    font-size: 1.1em;
-    letter-spacing: 0.5px;
-}
-
-.project-item .project-link:hover {
-    background: #0056b3;
-    transform: translateY(-3px);
-}
-*/
 
 /* Contact Section */
 .contact-list {
@@ -241,154 +257,111 @@ section h2::after {
 }
 
 .contact-list li {
-    margin-bottom: 18px;
-    font-size: 1.2em;
+    margin-bottom: 20px;
+    font-size: 1.3em;
 }
 
 .contact-list li a {
-    color: #007bff;
+    color: var(--primary-blue);
     text-decoration: none;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, text-decoration 0.3s ease;
     font-weight: 500;
 }
 
 .contact-list li a:hover {
-    color: #0056b3;
+    color: var(--dark-blue);
     text-decoration: underline;
+}
+
+.contact-list li .fas, .contact-list li .fab {
+    font-size: 1.5em;
+    margin-right: 15px;
+    color: var(--text-dark); /* Ikon kontak putih */
 }
 
 /* Footer Styles */
 footer {
-    background: #1a1a1a; /* Darker black for footer */
-    color: #e0e0e0;
+    background: #000; /* Hitam pekat */
+    color: var(--text-light);
     text-align: center;
     padding: 30px 0;
-    margin-top: 50px;
-    box-shadow: 0 -5px 15px rgba(0,0,0,0.2);
+    margin-top: 60px;
+    box-shadow: 0 -5px 15px var(--shadow-dark);
     font-size: 0.9em;
 }
 
-/* Modal Styles - Tetap sama, karena sudah cukup baik */
-/* Modal styles are removed as the modal and project section are removed from HTML */
-/*
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.7);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.modal-content {
-    background-color: #fff;
-    margin: auto;
-    padding: 30px;
-    border-radius: 10px;
-    width: 80%;
-    max-width: 550px;
-    box-shadow: 0 8px 25px rgba(0,0,0,0.5);
+/* Scroll-reveal effect (JavaScript related) */
+.reveal {
     position: relative;
-    text-align: center;
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
-.close-button {
-    color: #aaa;
-    float: right;
-    font-size: 32px;
-    font-weight: bold;
-    position: absolute;
-    top: 15px;
-    right: 25px;
-    cursor: pointer;
-    transition: color 0.3s ease;
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
 }
 
-.close-button:hover,
-.close-button:focus {
-    color: #555;
-    text-decoration: none;
-}
-
-#modalProjectTitle {
-    color: #007bff;
-    font-size: 2em;
-    margin-bottom: 15px;
-}
-
-#modalProjectDescription {
-    font-size: 1.15em;
-    line-height: 1.7;
-    margin-bottom: 25px;
-    color: #444;
-}
-
-#modalProjectLink {
-    display: inline-block;
-    padding: 12px 25px;
-    background-color: #28a745;
-    color: white;
-    text-decoration: none;
-    border-radius: 6px;
-    transition: background-color 0.3s ease;
-    font-weight: bold;
-}
-
-#modalProjectLink:hover {
-    background-color: #218838;
-}
-*/
 
 /* Responsive Design */
 @media (max-width: 768px) {
     .container {
         width: 95%;
-        padding: 10px 0;
+        padding: 20px 0;
     }
 
-    header {
-        padding: 30px 0;
+    .header-content {
+        flex-direction: column; /* Stacking vertically */
+        text-align: center;
+        gap: 15px;
+    }
+
+    .profile-info {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .profile-pic {
+        width: 100px;
+        height: 100px;
+    }
+
+    .text-info {
+        text-align: center;
     }
 
     header h1 {
-        font-size: 2.5em;
+        font-size: 2.2em;
     }
 
     .tagline {
-        font-size: 1.1em;
-    }
-
-    header nav ul {
-        flex-direction: column;
-        gap: 8px;
-        margin-top: 20px;
-    }
-
-    header nav ul li a {
-        padding: 8px 15px;
         font-size: 1em;
     }
 
+    .main-nav ul {
+        gap: 15px;
+    }
+
+    .main-nav ul li a {
+        font-size: 0.95em;
+        padding: 6px 12px;
+    }
+
     section {
-        padding: 40px 0;
+        padding: 50px 0;
         margin-bottom: 20px;
     }
 
     section h2 {
-        font-size: 2.2em;
-        margin-bottom: 30px;
-        padding-bottom: 10px;
+        font-size: 2.5em;
+        margin-bottom: 40px;
+        padding-bottom: 15px;
     }
 
     section h2::after {
-        width: 60px;
-        height: 3px;
+        width: 80px;
+        height: 4px;
     }
 
     #tentang p {
@@ -396,26 +369,20 @@ footer {
         padding: 0 10px;
     }
 
-    .skills-grid { /* Projects grid removed */
+    .skills-grid {
         grid-template-columns: 1fr;
         gap: 25px;
     }
 
-    .skill-item { /* Project item styles removed */
+    .skill-item {
         padding: 25px;
     }
 
-    /* Modal styles removed for mobile responsiveness as well */
-    /*
-    .modal-content {
-        width: 90%;
-        padding: 25px;
+    .skill-item h3 {
+        font-size: 1.5em;
     }
 
-    .close-button {
-        font-size: 24px;
-        top: 10px;
-        right: 15px;
+    .contact-list li {
+        font-size: 1.1em;
     }
-    */
-}
+    }
