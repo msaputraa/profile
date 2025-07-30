@@ -40,10 +40,19 @@ header {
     text-align: center;
     box-shadow: 0 5px 15px var(--shadow-dark); /* Bayangan lebih kuat */
     border-bottom: 1px solid var(--border-color); /* Garis bawah halus */
-    position: sticky; /* Membuat header tetap di atas saat scroll */
-    top: 0;
-    z-index: 1000; /* Pastikan di atas elemen lain */
+    /* PENTING: Untuk membuat header FIXED di atas */
+    position: fixed; /* <-- DIUBAH DARI 'sticky' */
+    width: 100%; /* Agar header memenuhi lebar layar */
+    top: 0; /* Menempel di bagian atas */
+    left: 0; /* Menempel di bagian kiri */
+    z-index: 1000; /* Pastikan di atas elemen lain saat scroll */
 }
+
+/* Tambahan: Mengatur ruang agar konten tidak tertutup header fixed */
+main {
+    padding-top: 180px; /* Sesuaikan angka ini jika perlu, sekitar tinggi header + sedikit ruang */
+}
+
 
 .header-content {
     display: flex; /* Menggunakan flexbox */
