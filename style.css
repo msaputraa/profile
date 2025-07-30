@@ -22,6 +22,9 @@ body {
     color: var(--text-light); /* Warna teks umum */
     background-color: var(--background-dark); /* Latar belakang gelap */
     scroll-behavior: smooth; /* Scrolling halus */
+    /* Mencegah overscroll di iOS/Android yang kadang bikin aneh fixed position */
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden; /* Mencegah scroll horizontal yang tidak diinginkan */
 }
 
 .container {
@@ -36,31 +39,36 @@ body {
 header {
     background: var(--background-dark); /* Tetap hitam */
     color: var(--text-dark); /* Teks putih murni */
-    padding: 30px 0; /* Sedikit kurang padding vertikal untuk tampilan lebih ringkas */
+    padding: 30px 0; /* Padding vertikal yang sedikit dikurangi */
     text-align: center;
     box-shadow: 0 5px 20px var(--shadow-dark); /* Bayangan lebih kuat dan menyebar */
     border-bottom: 1px solid var(--border-color); /* Garis bawah halus */
+
     /* PENTING: Untuk membuat header FIXED di atas */
-    position: fixed; /* <-- Tetap fixed */
-    width: 100%; /* Agar header memenuhi lebar layar */
-    top: 0; /* Menempel di bagian atas */
-    left: 0; /* Menempel di bagian kiri */
-    z-index: 9999; /* <-- Tingkatkan z-index ke nilai yang sangat tinggi */
-    box-sizing: border-box; /* Pastikan padding tidak menambah lebar total */
+    position: fixed; /* Kunci: Header akan selalu berada di posisi ini di viewport */
+    width: 100%; /* Agar header memenuhi seluruh lebar layar */
+    top: 0; /* Menempel di bagian paling atas viewport */
+    left: 0; /* Menempel di bagian paling kiri viewport */
+    z-index: 9999; /* Pastikan header berada di lapisan paling atas, di atas elemen lain */
+    box-sizing: border-box; /* Pastikan padding tidak menambah lebar total elemen */
 }
 
-/* Tambahan: Mengatur ruang agar konten tidak tertutup header fixed */
+/* PENTING: Mengatur ruang di bawah header agar konten tidak tertutup */
+/* Ini adalah bagian yang akan "mendorong" isi halaman ke bawah */
 main {
-    padding-top: 180px; /* Sesuaikan angka ini jika perlu, sekitar tinggi header + sedikit ruang */
+    /* Sesuaikan nilai padding-top ini. Ini adalah perkiraan tinggi header. */
+    /* Jika konten masih tertutup header, tingkatkan angka ini. */
+    /* Jika terlalu banyak spasi kosong di bawah header, kurangi angka ini. */
+    padding-top: 180px; /* Nilai perkiraan tinggi header agar konten tidak tertutup */
 }
 
 
 .header-content {
-    display: flex; /* Menggunakan flexbox */
-    justify-content: space-between; /* Konten tersebar */
-    align-items: center; /* Konten di tengah vertikal */
-    flex-wrap: wrap; /* Agar responsif di layar kecil */
-    gap: 20px; /* Jarak antar item */
+    display: flex; /* Menggunakan flexbox untuk tata letak */
+    justify-content: space-between; /* Konten tersebar ke ujung kiri dan kanan */
+    align-items: center; /* Konten di tengah secara vertikal */
+    flex-wrap: wrap; /* Agar elemen bisa turun baris di layar kecil */
+    gap: 20px; /* Jarak antar item dalam header */
 }
 
 .profile-info {
@@ -70,17 +78,17 @@ main {
 }
 
 .profile-pic {
-    width: 120px; /* Ukuran foto lebih kecil sedikit */
-    height: 120px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid var(--primary-blue); /* Border biru */
-    box-shadow: 0 0 15px rgba(0, 123, 255, 0.6); /* Glow biru lebih kuat */
-    transition: transform 0.3s ease-in-out;
+    width: 120px; /* Ukuran foto profil */
+    height: 120px; /* Ukuran foto profil */
+    border-radius: 50%; /* Membuat foto menjadi lingkaran */
+    object-fit: cover; /* Memastikan gambar mengisi area tanpa terdistorsi */
+    border: 4px solid var(--primary-blue); /* Border biru di sekeliling foto */
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.6); /* Efek glow biru */
+    transition: transform 0.3s ease-in-out; /* Animasi halus saat hover */
 }
 
 .profile-pic:hover {
-    transform: scale(1.05) rotate(2deg); /* Efek zoom & putar sedikit saat hover */
+    transform: scale(1.05) rotate(2deg); /* Efek zoom dan putar sedikit saat hover */
 }
 
 .text-info {
@@ -88,12 +96,12 @@ main {
 }
 
 header h1 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif; /* Font untuk heading */
     margin: 0;
     font-size: 2.8em;
     font-weight: 700; /* Bold */
-    text-shadow: 2px 2px 5px var(--shadow-dark);
-    letter-spacing: 0.5px;
+    text-shadow: 2px 2px 5px var(--shadow-dark); /* Bayangan teks */
+    letter-spacing: 0.5px; /* Jarak antar huruf */
 }
 
 .tagline {
@@ -101,16 +109,16 @@ header h1 {
     margin-top: 5px;
     margin-bottom: 0;
     font-weight: 300;
-    color: var(--text-light); /* Teks tagline lebih ringan */
+    color: var(--text-light); /* Warna teks tagline yang lebih ringan */
 }
 
 .main-nav ul {
     padding: 0;
-    list-style: none;
-    display: flex;
-    gap: 30px;
-    flex-wrap: wrap;
-    justify-content: center; /* Pusatkan di layar kecil */
+    list-style: none; /* Menghilangkan bullet point default */
+    display: flex; /* Menggunakan flexbox untuk navigasi */
+    gap: 30px; /* Jarak antar item navigasi */
+    flex-wrap: wrap; /* Agar item navigasi bisa turun baris di layar kecil */
+    justify-content: center; /* Memusatkan navigasi di layar kecil */
 }
 
 .main-nav ul li a {
@@ -120,9 +128,9 @@ header h1 {
     font-size: 1.05em;
     padding: 8px 15px;
     border-radius: 5px;
-    transition: all 0.3s ease;
+    transition: all 0.3s ease; /* Transisi halus untuk hover */
     position: relative;
-    overflow: hidden; /* Untuk efek garis bawah */
+    overflow: hidden; /* Untuk efek garis bawah yang muncul dari samping */
 }
 
 .main-nav ul li a::after {
@@ -133,13 +141,13 @@ header h1 {
     width: 100%;
     height: 2px;
     background-color: var(--primary-blue);
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-out;
+    transform: translateX(-100%); /* Garis tersembunyi di kiri */
+    transition: transform 0.3s ease-out; /* Animasi munculnya garis */
 }
 
 .main-nav ul li a:hover {
     color: var(--primary-blue); /* Teks jadi biru saat hover */
-    transform: translateY(-2px);
+    transform: translateY(-2px); /* Efek sedikit naik */
 }
 
 .main-nav ul li a:hover::after {
@@ -152,18 +160,18 @@ section {
     padding: 80px 0; /* Padding lebih besar untuk ruang antar bagian */
     margin-bottom: 30px;
     background: var(--background-light); /* Latar belakang agak terang dari dark */
-    border-radius: 15px; /* Lebih membulat */
-    box-shadow: 0 10px 30px var(--shadow-dark); /* Bayangan lebih dalam */
-    overflow: hidden; /* Pastikan konten tidak keluar dari border-radius */
+    border-radius: 15px; /* Sudut membulat untuk setiap section */
+    box-shadow: 0 10px 30px var(--shadow-dark); /* Bayangan yang lebih dalam */
+    overflow: hidden; /* Memastikan konten tidak keluar dari border-radius */
     border: 1px solid var(--border-color); /* Border halus */
 }
 
 section h2 {
-    font-family: 'Montserrat', sans-serif;
+    font-family: 'Montserrat', sans-serif; /* Font untuk heading section */
     text-align: center;
-    margin-bottom: 60px; /* Jarak lebih jauh dari konten */
-    color: var(--primary-blue); /* Heading biru */
-    font-size: 3.5em; /* Heading lebih besar */
+    margin-bottom: 60px; /* Jarak yang lebih jauh dari konten */
+    color: var(--primary-blue); /* Heading section berwarna biru */
+    font-size: 3.5em; /* Ukuran heading yang lebih besar */
     font-weight: 700;
     position: relative;
     padding-bottom: 20px;
@@ -177,7 +185,7 @@ section h2::after {
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
-    width: 120px; /* Garis bawah lebih lebar */
+    width: 120px; /* Garis bawah heading lebih lebar */
     height: 5px;
     background-color: var(--primary-blue);
     border-radius: 3px;
@@ -194,15 +202,15 @@ section h2::after {
 }
 
 #tentang strong {
-    color: var(--primary-blue); /* Penekanan biru */
+    color: var(--primary-blue); /* Penekanan teks berwarna biru */
     font-weight: 600;
 }
 
 /* Skills Section */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    gap: 40px;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Kolom responsif */
+    gap: 40px; /* Jarak antar item skill */
     text-align: left;
 }
 
@@ -211,14 +219,14 @@ section h2::after {
     padding: 35px;
     border-radius: 10px;
     box-shadow: 0 5px 15px var(--shadow-light);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-left: 5px solid var(--primary-blue); /* Border kiri biru */
+    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi halus saat hover */
+    border-left: 5px solid var(--primary-blue); /* Border kiri biru sebagai aksen */
     color: var(--text-light);
 }
 
 .skill-item:hover {
-    transform: translateY(-10px); /* Lift lebih tinggi */
-    box-shadow: 0 12px 25px var(--shadow-dark); /* Bayangan lebih dalam */
+    transform: translateY(-10px); /* Efek lift lebih tinggi saat hover */
+    box-shadow: 0 12px 25px var(--shadow-dark); /* Bayangan lebih dalam saat hover */
 }
 
 .skill-item h3 {
@@ -226,17 +234,17 @@ section h2::after {
     color: var(--text-dark); /* Heading item skill putih */
     margin-top: 0;
     margin-bottom: 25px;
-    border-bottom: 1px dashed var(--border-color);
+    border-bottom: 1px dashed var(--border-color); /* Garis putus-putus di bawah heading item */
     padding-bottom: 15px;
     font-size: 2em;
     font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 10px; /* Jarak ikon & teks */
+    gap: 10px; /* Jarak antara ikon dan teks heading */
 }
 
 .skill-item h3 .fas, .skill-item h3 .fab {
-    color: var(--primary-blue); /* Ikon di heading biru */
+    color: var(--primary-blue); /* Ikon di heading item berwarna biru */
     font-size: 1.2em;
 }
 
@@ -256,7 +264,7 @@ section h2::after {
 .skill-item ul li .fas, .skill-item ul li .fab {
     font-size: 1.3em;
     margin-right: 15px;
-    color: var(--primary-blue);
+    color: var(--primary-blue); /* Ikon di list item berwarna biru */
 }
 
 /* Contact Section */
@@ -395,4 +403,4 @@ footer {
     .contact-list li {
         font-size: 1.1em;
     }
-    }
+}
