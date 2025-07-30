@@ -36,16 +36,17 @@ body {
 header {
     background: var(--background-dark); /* Tetap hitam */
     color: var(--text-dark); /* Teks putih murni */
-    padding: 40px 0;
+    padding: 30px 0; /* Sedikit kurang padding vertikal untuk tampilan lebih ringkas */
     text-align: center;
-    box-shadow: 0 5px 15px var(--shadow-dark); /* Bayangan lebih kuat */
+    box-shadow: 0 5px 20px var(--shadow-dark); /* Bayangan lebih kuat dan menyebar */
     border-bottom: 1px solid var(--border-color); /* Garis bawah halus */
     /* PENTING: Untuk membuat header FIXED di atas */
-    position: fixed; /* <-- DIUBAH DARI 'sticky' */
+    position: fixed; /* <-- Tetap fixed */
     width: 100%; /* Agar header memenuhi lebar layar */
     top: 0; /* Menempel di bagian atas */
     left: 0; /* Menempel di bagian kiri */
-    z-index: 1000; /* Pastikan di atas elemen lain saat scroll */
+    z-index: 9999; /* <-- Tingkatkan z-index ke nilai yang sangat tinggi */
+    box-sizing: border-box; /* Pastikan padding tidak menambah lebar total */
 }
 
 /* Tambahan: Mengatur ruang agar konten tidak tertutup header fixed */
