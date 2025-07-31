@@ -2,15 +2,15 @@
 
 /* Variabel CSS untuk konsistensi warna */
 :root {
-    --primary-blue: #007bff;
-    --dark-blue: #0056b3;
-    --background-dark: #1a1a1a; /* Sangat gelap, hampir hitam */
-    --background-light: #2c2c2c; /* Agak terang dari dark, untuk kontras */
-    --text-light: #e0e0e0; /* Putih keabu-abuan untuk teks */
-    --text-dark: #ffffff; /* Putih murni untuk heading/penting */
-    --border-color: rgba(255, 255, 255, 0.1); /* Border tipis putih transparan */
-    --shadow-dark: rgba(0, 0, 0, 0.4);
-    --shadow-light: rgba(0, 0, 0, 0.2);
+    --primary-color: #007bff; /* Biru terang sebagai aksen utama */
+    --secondary-color: #00bcd4; /* Teal sebagai aksen sekunder */
+    --background-light: #f4f7fa; /* Latar belakang sangat terang */
+    --background-card: #ffffff; /* Putih bersih untuk kartu/section */
+    --text-dark: #333333; /* Teks gelap */
+    --text-light: #666666; /* Teks abu-abu lebih terang */
+    --border-light: #e0e0e0; /* Border abu-abu terang */
+    --shadow-light: rgba(0, 0, 0, 0.1); /* Bayangan tipis */
+    --shadow-hover: rgba(0, 0, 0, 0.15); /* Bayangan sedikit lebih gelap saat hover */
 }
 
 /* General Body Styles */
@@ -18,57 +18,52 @@ body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    line-height: 1.8; /* Lebih lega */
-    color: var(--text-light); /* Warna teks umum */
-    background-color: var(--background-dark); /* Latar belakang gelap */
-    scroll-behavior: smooth; /* Scrolling halus */
-    /* Mencegah overscroll di iOS/Android yang kadang bikin aneh fixed position */
+    line-height: 1.8;
+    color: var(--text-dark); /* Warna teks umum gelap */
+    background-color: var(--background-light); /* Latar belakang terang */
+    scroll-behavior: smooth;
     -webkit-overflow-scrolling: touch;
-    overflow-x: hidden; /* Mencegah scroll horizontal yang tidak diinginkan */
+    overflow-x: hidden;
 }
 
 .container {
-    width: 90%; /* Sedikit lebih lebar */
-    max-width: 1100px; /* Batas lebar maksimal */
+    width: 90%;
+    max-width: 1100px;
     margin: auto;
     overflow: hidden;
-    padding: 30px 0; /* Padding vertikal */
+    padding: 30px 0;
 }
 
 /* Header Styles */
 header {
-    background: var(--background-dark); /* Tetap hitam */
-    color: var(--text-dark); /* Teks putih murni */
-    padding: 30px 0; /* Padding vertikal yang sedikit dikurangi */
+    background: var(--background-card); /* Latar belakang header putih */
+    color: var(--text-dark);
+    padding: 25px 0; /* Padding vertikal sedikit lebih kecil */
     text-align: center;
-    box-shadow: 0 5px 20px var(--shadow-dark); /* Bayangan lebih kuat dan menyebar */
-    border-bottom: 1px solid var(--border-color); /* Garis bawah halus */
+    box-shadow: 0 4px 15px var(--shadow-light); /* Bayangan lebih halus */
+    border-bottom: 1px solid var(--border-light); /* Garis bawah halus */
 
-    /* PENTING: Untuk membuat header FIXED di atas */
-    position: fixed; /* Kunci: Header akan selalu berada di posisi ini di viewport */
-    width: 100%; /* Agar header memenuhi seluruh lebar layar */
-    top: 0; /* Menempel di bagian paling atas viewport */
-    left: 0; /* Menempel di bagian paling kiri viewport */
-    z-index: 9999; /* Pastikan header berada di lapisan paling atas, di atas elemen lain */
-    box-sizing: border-box; /* Pastikan padding tidak menambah lebar total elemen */
+    /* PENTING: Membuat header FIXED di atas */
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 9999;
+    box-sizing: border-box;
 }
 
 /* PENTING: Mengatur ruang di bawah header agar konten tidak tertutup */
-/* Ini adalah bagian yang akan "mendorong" isi halaman ke bawah */
 main {
-    /* Sesuaikan nilai padding-top ini. Ini adalah perkiraan tinggi header. */
-    /* Jika konten masih tertutup header, tingkatkan angka ini. */
-    /* Jika terlalu banyak spasi kosong di bawah header, kurangi angka ini. */
-    padding-top: 180px; /* Nilai perkiraan tinggi header agar konten tidak tertutup */
+    padding-top: 150px; /* Sesuaikan ini. Perkiraan tinggi header baru. */
 }
 
 
 .header-content {
-    display: flex; /* Menggunakan flexbox untuk tata letak */
-    justify-content: space-between; /* Konten tersebar ke ujung kiri dan kanan */
-    align-items: center; /* Konten di tengah secara vertikal */
-    flex-wrap: wrap; /* Agar elemen bisa turun baris di layar kecil */
-    gap: 20px; /* Jarak antar item dalam header */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
 }
 
 .profile-info {
@@ -78,59 +73,59 @@ main {
 }
 
 .profile-pic {
-    width: 120px; /* Ukuran foto profil */
-    height: 120px; /* Ukuran foto profil */
-    border-radius: 50%; /* Membuat foto menjadi lingkaran */
-    object-fit: cover; /* Memastikan gambar mengisi area tanpa terdistorsi */
-    border: 4px solid var(--primary-blue); /* Border biru di sekeliling foto */
-    box-shadow: 0 0 15px rgba(0, 123, 255, 0.6); /* Efek glow biru */
-    transition: transform 0.3s ease-in-out; /* Animasi halus saat hover */
+    width: 100px; /* Ukuran foto sedikit lebih kecil */
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 4px solid var(--primary-color); /* Border biru */
+    box-shadow: 0 0 10px rgba(0, 123, 255, 0.4); /* Glow biru lebih halus */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
 }
 
 .profile-pic:hover {
-    transform: scale(1.05) rotate(2deg); /* Efek zoom dan putar sedikit saat hover */
+    transform: scale(1.05); /* Zoom saja, tanpa putar */
+    box-shadow: 0 0 20px rgba(0, 123, 255, 0.6);
 }
 
 .text-info {
-    text-align: left; /* Teks nama & tagline rata kiri */
+    text-align: left;
 }
 
 header h1 {
-    font-family: 'Montserrat', sans-serif; /* Font untuk heading */
+    font-family: 'Montserrat', sans-serif;
     margin: 0;
-    font-size: 2.8em;
-    font-weight: 700; /* Bold */
-    text-shadow: 2px 2px 5px var(--shadow-dark); /* Bayangan teks */
-    letter-spacing: 0.5px; /* Jarak antar huruf */
+    font-size: 2.5em; /* Ukuran nama sedikit lebih kecil */
+    font-weight: 700;
+    color: var(--text-dark);
 }
 
 .tagline {
-    font-size: 1.1em;
+    font-size: 1em; /* Ukuran tagline sedikit lebih kecil */
     margin-top: 5px;
     margin-bottom: 0;
-    font-weight: 300;
-    color: var(--text-light); /* Warna teks tagline yang lebih ringan */
+    font-weight: 400;
+    color: var(--text-light);
 }
 
 .main-nav ul {
     padding: 0;
-    list-style: none; /* Menghilangkan bullet point default */
-    display: flex; /* Menggunakan flexbox untuk navigasi */
-    gap: 30px; /* Jarak antar item navigasi */
-    flex-wrap: wrap; /* Agar item navigasi bisa turun baris di layar kecil */
-    justify-content: center; /* Memusatkan navigasi di layar kecil */
+    list-style: none;
+    display: flex;
+    gap: 25px; /* Jarak navigasi sedikit lebih kecil */
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .main-nav ul li a {
-    color: var(--text-light);
+    color: var(--text-dark); /* Warna teks navigasi gelap */
     text-decoration: none;
     font-weight: 500;
-    font-size: 1.05em;
-    padding: 8px 15px;
+    font-size: 1em;
+    padding: 8px 12px;
     border-radius: 5px;
-    transition: all 0.3s ease; /* Transisi halus untuk hover */
+    transition: all 0.3s ease;
     position: relative;
-    overflow: hidden; /* Untuk efek garis bawah yang muncul dari samping */
+    overflow: hidden;
 }
 
 .main-nav ul li a::after {
@@ -139,44 +134,51 @@ header h1 {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 2px;
-    background-color: var(--primary-blue);
-    transform: translateX(-100%); /* Garis tersembunyi di kiri */
-    transition: transform 0.3s ease-out; /* Animasi munculnya garis */
+    height: 3px; /* Garis bawah sedikit lebih tebal */
+    background-color: var(--primary-color);
+    transform: translateX(-100%);
+    transition: transform 0.3s ease-out;
 }
 
 .main-nav ul li a:hover {
-    color: var(--primary-blue); /* Teks jadi biru saat hover */
-    transform: translateY(-2px); /* Efek sedikit naik */
+    color: var(--primary-color); /* Teks jadi biru saat hover */
+    background-color: rgba(0, 123, 255, 0.05); /* Background sangat tipis saat hover */
 }
 
 .main-nav ul li a:hover::after {
-    transform: translateX(0); /* Garis bawah muncul */
+    transform: translateX(0);
 }
 
 
-/* Section Styles */
-section {
-    padding: 80px 0; /* Padding lebih besar untuk ruang antar bagian */
-    margin-bottom: 30px;
-    background: var(--background-light); /* Latar belakang agak terang dari dark */
-    border-radius: 15px; /* Sudut membulat untuk setiap section */
-    box-shadow: 0 10px 30px var(--shadow-dark); /* Bayangan yang lebih dalam */
-    overflow: hidden; /* Memastikan konten tidak keluar dari border-radius */
-    border: 1px solid var(--border-color); /* Border halus */
+/* Section Styles - Menggunakan desain kartu */
+section.card {
+    padding: 60px; /* Padding section yang konsisten */
+    margin-top: 40px; /* Jarak antar section */
+    margin-bottom: 40px;
+    background: var(--background-card); /* Latar belakang putih untuk kartu */
+    border-radius: 12px; /* Sudut membulat yang konsisten */
+    box-shadow: 0 8px 25px var(--shadow-light); /* Bayangan yang lebih lembut */
+    overflow: hidden;
+    border: 1px solid var(--border-light); /* Border tipis */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section.card:hover {
+    transform: translateY(-5px); /* Sedikit naik saat hover */
+    box-shadow: 0 12px 30px var(--shadow-hover); /* Bayangan sedikit lebih gelap */
 }
 
 section h2 {
-    font-family: 'Montserrat', sans-serif; /* Font untuk heading section */
+    font-family: 'Montserrat', sans-serif;
     text-align: center;
-    margin-bottom: 60px; /* Jarak yang lebih jauh dari konten */
-    color: var(--primary-blue); /* Heading section berwarna biru */
-    font-size: 3.5em; /* Ukuran heading yang lebih besar */
+    margin-bottom: 50px;
+    color: var(--primary-color); /* Heading biru */
+    font-size: 3em; /* Ukuran heading section */
     font-weight: 700;
     position: relative;
-    padding-bottom: 20px;
-    letter-spacing: 2px;
-    text-transform: uppercase; /* Huruf kapital semua */
+    padding-bottom: 15px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
 }
 
 section h2::after {
@@ -185,67 +187,67 @@ section h2::after {
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
-    width: 120px; /* Garis bawah heading lebih lebar */
-    height: 5px;
-    background-color: var(--primary-blue);
-    border-radius: 3px;
+    width: 100px; /* Garis bawah heading */
+    height: 4px;
+    background-color: var(--primary-color);
+    border-radius: 2px;
 }
 
 /* About Section */
 #tentang p {
-    font-size: 1.15em;
+    font-size: 1.1em;
     text-align: center;
-    max-width: 900px;
-    margin: 0 auto 25px;
-    color: var(--text-light);
-    line-height: 1.9;
+    max-width: 800px;
+    margin: 0 auto 20px;
+    color: var(--text-light); /* Teks abu-abu terang */
+    line-height: 1.7;
 }
 
 #tentang strong {
-    color: var(--primary-blue); /* Penekanan teks berwarna biru */
+    color: var(--primary-color); /* Penekanan biru */
     font-weight: 600;
 }
 
 /* Skills Section */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); /* Kolom responsif */
-    gap: 40px; /* Jarak antar item skill */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ukuran grid lebih fleksibel */
+    gap: 30px; /* Jarak antar item skill */
     text-align: left;
 }
 
 .skill-item {
-    background: var(--background-dark); /* Background item skill gelap */
-    padding: 35px;
-    border-radius: 10px;
-    box-shadow: 0 5px 15px var(--shadow-light);
-    transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transisi halus saat hover */
-    border-left: 5px solid var(--primary-blue); /* Border kiri biru sebagai aksen */
-    color: var(--text-light);
+    background: var(--background-light); /* Background item skill sedikit lebih gelap dari card */
+    padding: 30px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px var(--shadow-light);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-top: 5px solid var(--secondary-color); /* Border atas teal sebagai aksen */
+    color: var(--text-dark);
 }
 
 .skill-item:hover {
-    transform: translateY(-10px); /* Efek lift lebih tinggi saat hover */
-    box-shadow: 0 12px 25px var(--shadow-dark); /* Bayangan lebih dalam saat hover */
+    transform: translateY(-5px);
+    box-shadow: 0 6px 15px var(--shadow-hover);
 }
 
 .skill-item h3 {
     font-family: 'Montserrat', sans-serif;
-    color: var(--text-dark); /* Heading item skill putih */
+    color: var(--primary-color); /* Heading item skill biru */
     margin-top: 0;
-    margin-bottom: 25px;
-    border-bottom: 1px dashed var(--border-color); /* Garis putus-putus di bawah heading item */
-    padding-bottom: 15px;
-    font-size: 2em;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed var(--border-light);
+    padding-bottom: 10px;
+    font-size: 1.8em;
     font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 10px; /* Jarak antara ikon dan teks heading */
+    gap: 10px;
 }
 
 .skill-item h3 .fas, .skill-item h3 .fab {
-    color: var(--primary-blue); /* Ikon di heading item berwarna biru */
-    font-size: 1.2em;
+    color: var(--secondary-color); /* Ikon di heading item teal */
+    font-size: 1.1em;
 }
 
 .skill-item ul {
@@ -254,17 +256,17 @@ section h2::after {
 }
 
 .skill-item ul li {
-    margin-bottom: 15px;
-    font-size: 1.1em;
+    margin-bottom: 12px;
+    font-size: 1em;
     display: flex;
     align-items: center;
     color: var(--text-light);
 }
 
 .skill-item ul li .fas, .skill-item ul li .fab {
-    font-size: 1.3em;
-    margin-right: 15px;
-    color: var(--primary-blue); /* Ikon di list item berwarna biru */
+    font-size: 1.2em;
+    margin-right: 12px;
+    color: var(--primary-color); /* Ikon di list item biru */
 }
 
 /* Contact Section */
@@ -275,45 +277,45 @@ section h2::after {
 }
 
 .contact-list li {
-    margin-bottom: 20px;
-    font-size: 1.3em;
+    margin-bottom: 18px;
+    font-size: 1.2em;
 }
 
 .contact-list li a {
-    color: var(--primary-blue);
+    color: var(--primary-color);
     text-decoration: none;
     transition: color 0.3s ease, text-decoration 0.3s ease;
     font-weight: 500;
 }
 
 .contact-list li a:hover {
-    color: var(--dark-blue);
+    color: var(--dark-blue); /* Gunakan dark-blue dari dark theme jika ingin lebih gelap, atau primary-color:hover */
     text-decoration: underline;
 }
 
 .contact-list li .fas, .contact-list li .fab {
-    font-size: 1.5em;
+    font-size: 1.4em;
     margin-right: 15px;
-    color: var(--text-dark); /* Ikon kontak putih */
+    color: var(--secondary-color); /* Ikon kontak teal */
 }
 
 /* Footer Styles */
 footer {
-    background: #000; /* Hitam pekat */
-    color: var(--text-light);
+    background: var(--text-dark); /* Background footer gelap */
+    color: var(--background-card); /* Teks footer putih */
     text-align: center;
-    padding: 30px 0;
-    margin-top: 60px;
-    box-shadow: 0 -5px 15px var(--shadow-dark);
-    font-size: 0.9em;
+    padding: 25px 0;
+    margin-top: 50px;
+    box-shadow: 0 -3px 10px var(--shadow-light);
+    font-size: 0.85em;
 }
 
 /* Scroll-reveal effect (JavaScript related) */
 .reveal {
     position: relative;
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+    transform: translateY(30px); /* Jarak awal sedikit lebih jauh */
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out; /* Transisi lebih lambat dan halus */
 }
 
 .reveal.active {
@@ -326,11 +328,11 @@ footer {
 @media (max-width: 768px) {
     .container {
         width: 95%;
-        padding: 20px 0;
+        padding: 15px 0;
     }
 
     .header-content {
-        flex-direction: column; /* Stacking vertically */
+        flex-direction: column;
         text-align: center;
         gap: 15px;
     }
@@ -341,8 +343,8 @@ footer {
     }
 
     .profile-pic {
-        width: 100px;
-        height: 100px;
+        width: 80px;
+        height: 80px;
     }
 
     .text-info {
@@ -350,57 +352,58 @@ footer {
     }
 
     header h1 {
-        font-size: 2.2em;
+        font-size: 2em;
     }
 
     .tagline {
-        font-size: 1em;
+        font-size: 0.9em;
     }
 
     .main-nav ul {
-        gap: 15px;
+        gap: 12px;
     }
 
     .main-nav ul li a {
-        font-size: 0.95em;
-        padding: 6px 12px;
+        font-size: 0.9em;
+        padding: 6px 10px;
     }
 
-    section {
-        padding: 50px 0;
-        margin-bottom: 20px;
+    section.card {
+        padding: 30px;
+        margin-top: 25px;
+        margin-bottom: 25px;
     }
 
     section h2 {
-        font-size: 2.5em;
-        margin-bottom: 40px;
-        padding-bottom: 15px;
+        font-size: 2.2em;
+        margin-bottom: 30px;
+        padding-bottom: 10px;
     }
 
     section h2::after {
-        width: 80px;
-        height: 4px;
+        width: 70px;
+        height: 3px;
     }
 
     #tentang p {
         font-size: 1em;
-        padding: 0 10px;
+        padding: 0 5px;
     }
 
     .skills-grid {
         grid-template-columns: 1fr;
-        gap: 25px;
+        gap: 20px;
     }
 
     .skill-item {
-        padding: 25px;
+        padding: 20px;
     }
 
     .skill-item h3 {
-        font-size: 1.5em;
+        font-size: 1.4em;
     }
 
     .contact-list li {
-        font-size: 1.1em;
+        font-size: 1em;
     }
-}
+        }
