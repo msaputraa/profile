@@ -34,11 +34,11 @@ body {
     padding: 30px 0;
 }
 
-/* Header Styles - Lebih Profesional dan Ramping */
+/* Header Styles - Kembali dengan Nama Besar dan Tagline */
 header {
     background: var(--background-card); /* Latar belakang header putih */
     color: var(--text-dark);
-    padding: 20px 0; /* Padding vertikal lebih kecil, header lebih ramping */
+    padding: 25px 0; /* Padding vertikal yang pas */
     box-shadow: 0 4px 15px var(--shadow-light); /* Bayangan halus */
     border-bottom: 1px solid var(--border-light); /* Garis bawah halus */
     
@@ -52,36 +52,36 @@ header {
 
 .header-content {
     display: flex;
-    justify-content: space-between; /* Judul kiri, Navigasi kanan */
+    justify-content: space-between; /* Branding kiri, Navigasi kanan */
     align-items: center;
     flex-wrap: wrap; /* Untuk responsivitas */
     gap: 20px; /* Jarak antar item */
+    text-align: left; /* Teks dalam branding rata kiri */
 }
 
-.site-title {
+.header-branding h1 {
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.8em; /* Ukuran nama/logo yang pas */
-    font-weight: 700;
-    color: var(--primary-color); /* Warna biru untuk judul situs */
-    text-decoration: none; /* Hilangkan garis bawah */
-    transition: color 0.3s ease;
+    font-size: 2.8em; /* Ukuran font gagah untuk nama */
+    font-weight: 700; /* Tebal */
+    color: var(--primary-color); /* Warna biru untuk nama */
+    margin: 0; /* Hapus margin default h1 */
+    line-height: 1.2; /* Jarak baris yang pas */
 }
 
-.site-title:hover {
-    color: var(--dark-blue); /* Perubahan warna saat hover */
+.header-branding .tagline {
+    font-size: 1.1em; /* Ukuran tagline */
+    font-weight: 400;
+    color: var(--text-light); /* Warna abu-abu untuk tagline */
+    margin: 5px 0 0 0; /* Margin atas untuk jarak dari nama */
 }
-
-/* Foto profil dan info di header dihilangkan untuk desain lebih profesional */
-/* Jika kamu ingin menambahkan foto profil di bagian lain, bisa di About Section */
 
 /* PENTING: Mengatur ruang di bawah header agar konten tidak tertutup */
 main {
     /* Sesuaikan nilai padding-top ini. Ini adalah perkiraan tinggi header baru. */
     /* Jika konten masih tertutup header, tingkatkan angka ini. */
     /* Jika terlalu banyak spasi kosong di bawah header, kurangi angka ini. */
-    padding-top: 100px; /* Nilai perkiraan tinggi header baru yang lebih ramping */
+    padding-top: 150px; /* Nilai perkiraan tinggi header yang lebih besar */
 }
-
 
 .main-nav ul {
     padding: 0;
@@ -168,6 +168,24 @@ section h2::after {
     background-color: var(--primary-color);
     border-radius: 2px;
 }
+
+/* FOTO PROFIL DI SECTION "TENTANG SAYA" */
+.about-profile-pic {
+    display: block; /* Agar bisa diatur margin auto */
+    margin: 0 auto 30px auto; /* Pusat dan beri jarak bawah */
+    width: 150px; /* Ukuran foto yang lebih besar */
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid var(--secondary-color); /* Border teal */
+    box-shadow: 0 0 20px rgba(0, 188, 212, 0.5); /* Glow teal */
+    transition: transform 0.3s ease-in-out;
+}
+
+.about-profile-pic:hover {
+    transform: scale(1.05);
+}
+
 
 /* About Section */
 #tentang p {
@@ -313,12 +331,20 @@ footer {
         gap: 15px;
     }
 
-    .site-title {
-        font-size: 1.5em; /* Ukuran judul lebih kecil di mobile */
+    .header-branding {
+        text-align: center; /* Pastikan rata tengah di mobile */
+    }
+
+    .header-branding h1 {
+        font-size: 2em; /* Ukuran nama lebih kecil di mobile */
+    }
+
+    .header-branding .tagline {
+        font-size: 0.9em; /* Ukuran tagline lebih kecil di mobile */
     }
 
     main {
-        padding-top: 120px; /* Sesuaikan lagi jika header masih tertutup di mobile */
+        padding-top: 130px; /* Sesuaikan lagi jika header masih tertutup di mobile */
     }
 
     .main-nav ul {
@@ -347,6 +373,11 @@ footer {
         height: 3px;
     }
 
+    .about-profile-pic {
+        width: 120px; /* Ukuran foto di about section lebih kecil di mobile */
+        height: 120px;
+    }
+
     #tentang p {
         font-size: 1em;
         padding: 0 5px;
@@ -368,4 +399,4 @@ footer {
     .contact-list li {
         font-size: 1em;
     }
-}
+    }
