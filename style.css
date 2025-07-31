@@ -21,9 +21,9 @@ body {
     line-height: 1.8;
     color: var(--text-dark); /* Warna teks umum gelap */
     background-color: var(--background-light); /* Latar belakang terang */
-    scroll-behavior: smooth;
-    -webkit-overflow-scrolling: touch;
-    overflow-x: hidden;
+    scroll-behavior: smooth; /* Animasi scroll halus */
+    -webkit-overflow-scrolling: touch; /* Scroll yang lebih halus di iOS */
+    overflow-x: hidden; /* Mencegah scroll horizontal */
 }
 
 .container {
@@ -34,20 +34,20 @@ body {
     padding: 30px 0;
 }
 
-/* Header Styles - Kembali dengan Nama Besar dan Tagline */
+/* Header Styles - Fixed dan Profesional */
 header {
     background: var(--background-card); /* Latar belakang header putih */
     color: var(--text-dark);
-    padding: 25px 0; /* Padding vertikal yang pas */
+    padding: 25px 0; /* Padding vertikal yang pas untuk tinggi header */
     box-shadow: 0 4px 15px var(--shadow-light); /* Bayangan halus */
     border-bottom: 1px solid var(--border-light); /* Garis bawah halus */
     
-    position: fixed; /* Kunci: Header tetap di posisi ini */
-    width: 100%; /* Lebar penuh */
-    top: 0; /* Menempel di atas */
-    left: 0; /* Menempel di kiri */
-    z-index: 9999; /* Pastikan di atas semua elemen */
-    box-sizing: border-box; /* Agar padding tidak menambah lebar/tinggi */
+    position: fixed; /* KUNCI: Membuat header tetap di viewport */
+    width: 100%; /* Agar memenuhi lebar layar */
+    top: 0; /* Menempel di bagian atas */
+    left: 0; /* Menempel di bagian kiri */
+    z-index: 9999; /* Pastikan di atas elemen lain */
+    box-sizing: border-box; /* Agar padding tidak menambah lebar/tinggi elemen */
 }
 
 .header-content {
@@ -77,10 +77,10 @@ header {
 
 /* PENTING: Mengatur ruang di bawah header agar konten tidak tertutup */
 main {
-    /* Sesuaikan nilai padding-top ini. Ini adalah perkiraan tinggi header baru. */
-    /* Jika konten masih tertutup header, tingkatkan angka ini. */
-    /* Jika terlalu banyak spasi kosong di bawah header, kurangi angka ini. */
-    padding-top: 150px; /* Nilai perkiraan tinggi header yang lebih besar */
+    /* Padding ini memberikan ruang aman yang cukup besar di bawah header. */
+    padding-top: 160px; /* Nilai yang diperbesar untuk memastikan tidak ada tumpang tindih */
+    /* Jika masih terlihat tertutup, coba tambahkan lagi (misal 170px, 180px). */
+    /* Jika terlalu banyak spasi kosong di bawah header, kurangi (misal 150px, 140px). */
 }
 
 .main-nav ul {
@@ -126,7 +126,7 @@ main {
 }
 
 
-/* Section Styles - Menggunakan desain kartu */
+/* Section Styles - Desain Kartu Modern */
 section.card {
     padding: 60px;
     margin-top: 40px;
@@ -169,25 +169,7 @@ section h2::after {
     border-radius: 2px;
 }
 
-/* FOTO PROFIL DI SECTION "TENTANG SAYA" */
-.about-profile-pic {
-    display: block; /* Agar bisa diatur margin auto */
-    margin: 0 auto 30px auto; /* Pusat dan beri jarak bawah */
-    width: 150px; /* Ukuran foto yang lebih besar */
-    height: 150px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 5px solid var(--secondary-color); /* Border teal */
-    box-shadow: 0 0 20px rgba(0, 188, 212, 0.5); /* Glow teal */
-    transition: transform 0.3s ease-in-out;
-}
-
-.about-profile-pic:hover {
-    transform: scale(1.05);
-}
-
-
-/* About Section */
+/* Tentang Saya Section */
 #tentang p {
     font-size: 1.1em;
     text-align: center;
@@ -283,7 +265,7 @@ section h2::after {
 }
 
 .contact-list li a:hover {
-    color: var(--dark-blue);
+    color: var(--primary-color); /* Warna sama saat hover */
     text-decoration: underline;
 }
 
@@ -344,7 +326,7 @@ footer {
     }
 
     main {
-        padding-top: 130px; /* Sesuaikan lagi jika header masih tertutup di mobile */
+        padding-top: 130px; /* Sesuaikan padding-top untuk mobile jika perlu */
     }
 
     .main-nav ul {
@@ -371,11 +353,6 @@ footer {
     section h2::after {
         width: 70px;
         height: 3px;
-    }
-
-    .about-profile-pic {
-        width: 120px; /* Ukuran foto di about section lebih kecil di mobile */
-        height: 120px;
     }
 
     #tentang p {
