@@ -34,86 +34,62 @@ body {
     padding: 30px 0;
 }
 
-/* Header Styles */
+/* Header Styles - Lebih Profesional dan Ramping */
 header {
     background: var(--background-card); /* Latar belakang header putih */
     color: var(--text-dark);
-    padding: 25px 0; /* Padding vertikal sedikit lebih kecil */
-    text-align: center;
-    box-shadow: 0 4px 15px var(--shadow-light); /* Bayangan lebih halus */
+    padding: 20px 0; /* Padding vertikal lebih kecil, header lebih ramping */
+    box-shadow: 0 4px 15px var(--shadow-light); /* Bayangan halus */
     border-bottom: 1px solid var(--border-light); /* Garis bawah halus */
-
-    /* PENTING: Membuat header FIXED di atas */
-    position: fixed;
-    width: 100%;
-    top: 0;
-    left: 0;
-    z-index: 9999;
-    box-sizing: border-box;
+    
+    position: fixed; /* Kunci: Header tetap di posisi ini */
+    width: 100%; /* Lebar penuh */
+    top: 0; /* Menempel di atas */
+    left: 0; /* Menempel di kiri */
+    z-index: 9999; /* Pastikan di atas semua elemen */
+    box-sizing: border-box; /* Agar padding tidak menambah lebar/tinggi */
 }
-
-/* PENTING: Mengatur ruang di bawah header agar konten tidak tertutup */
-main {
-    padding-top: 150px; /* Sesuaikan ini. Perkiraan tinggi header baru. */
-}
-
 
 .header-content {
     display: flex;
-    justify-content: space-between;
+    justify-content: space-between; /* Judul kiri, Navigasi kanan */
     align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
+    flex-wrap: wrap; /* Untuk responsivitas */
+    gap: 20px; /* Jarak antar item */
 }
 
-.profile-info {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.profile-pic {
-    width: 100px; /* Ukuran foto sedikit lebih kecil */
-    height: 100px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid var(--primary-color); /* Border biru */
-    box-shadow: 0 0 10px rgba(0, 123, 255, 0.4); /* Glow biru lebih halus */
-    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
-}
-
-.profile-pic:hover {
-    transform: scale(1.05); /* Zoom saja, tanpa putar */
-    box-shadow: 0 0 20px rgba(0, 123, 255, 0.6);
-}
-
-.text-info {
-    text-align: left;
-}
-
-header h1 {
+.site-title {
     font-family: 'Montserrat', sans-serif;
-    margin: 0;
-    font-size: 2.5em; /* Ukuran nama sedikit lebih kecil */
+    font-size: 1.8em; /* Ukuran nama/logo yang pas */
     font-weight: 700;
-    color: var(--text-dark);
+    color: var(--primary-color); /* Warna biru untuk judul situs */
+    text-decoration: none; /* Hilangkan garis bawah */
+    transition: color 0.3s ease;
 }
 
-.tagline {
-    font-size: 1em; /* Ukuran tagline sedikit lebih kecil */
-    margin-top: 5px;
-    margin-bottom: 0;
-    font-weight: 400;
-    color: var(--text-light);
+.site-title:hover {
+    color: var(--dark-blue); /* Perubahan warna saat hover */
 }
+
+/* Foto profil dan info di header dihilangkan untuk desain lebih profesional */
+/* Jika kamu ingin menambahkan foto profil di bagian lain, bisa di About Section */
+
+/* PENTING: Mengatur ruang di bawah header agar konten tidak tertutup */
+main {
+    /* Sesuaikan nilai padding-top ini. Ini adalah perkiraan tinggi header baru. */
+    /* Jika konten masih tertutup header, tingkatkan angka ini. */
+    /* Jika terlalu banyak spasi kosong di bawah header, kurangi angka ini. */
+    padding-top: 100px; /* Nilai perkiraan tinggi header baru yang lebih ramping */
+}
+
 
 .main-nav ul {
     padding: 0;
     list-style: none;
     display: flex;
-    gap: 25px; /* Jarak navigasi sedikit lebih kecil */
+    gap: 20px; /* Jarak antar item navigasi */
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: center; /* Memusatkan di mobile */
 }
 
 .main-nav ul li a {
@@ -134,15 +110,15 @@ header h1 {
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 3px; /* Garis bawah sedikit lebih tebal */
+    height: 3px;
     background-color: var(--primary-color);
     transform: translateX(-100%);
     transition: transform 0.3s ease-out;
 }
 
 .main-nav ul li a:hover {
-    color: var(--primary-color); /* Teks jadi biru saat hover */
-    background-color: rgba(0, 123, 255, 0.05); /* Background sangat tipis saat hover */
+    color: var(--primary-color);
+    background-color: rgba(0, 123, 255, 0.05);
 }
 
 .main-nav ul li a:hover::after {
@@ -152,28 +128,28 @@ header h1 {
 
 /* Section Styles - Menggunakan desain kartu */
 section.card {
-    padding: 60px; /* Padding section yang konsisten */
-    margin-top: 40px; /* Jarak antar section */
+    padding: 60px;
+    margin-top: 40px;
     margin-bottom: 40px;
-    background: var(--background-card); /* Latar belakang putih untuk kartu */
-    border-radius: 12px; /* Sudut membulat yang konsisten */
-    box-shadow: 0 8px 25px var(--shadow-light); /* Bayangan yang lebih lembut */
+    background: var(--background-card);
+    border-radius: 12px;
+    box-shadow: 0 8px 25px var(--shadow-light);
     overflow: hidden;
-    border: 1px solid var(--border-light); /* Border tipis */
+    border: 1px solid var(--border-light);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 section.card:hover {
-    transform: translateY(-5px); /* Sedikit naik saat hover */
-    box-shadow: 0 12px 30px var(--shadow-hover); /* Bayangan sedikit lebih gelap */
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px var(--shadow-hover);
 }
 
 section h2 {
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     margin-bottom: 50px;
-    color: var(--primary-color); /* Heading biru */
-    font-size: 3em; /* Ukuran heading section */
+    color: var(--primary-color);
+    font-size: 3em;
     font-weight: 700;
     position: relative;
     padding-bottom: 15px;
@@ -187,7 +163,7 @@ section h2::after {
     left: 50%;
     bottom: 0;
     transform: translateX(-50%);
-    width: 100px; /* Garis bawah heading */
+    width: 100px;
     height: 4px;
     background-color: var(--primary-color);
     border-radius: 2px;
@@ -199,30 +175,30 @@ section h2::after {
     text-align: center;
     max-width: 800px;
     margin: 0 auto 20px;
-    color: var(--text-light); /* Teks abu-abu terang */
+    color: var(--text-light);
     line-height: 1.7;
 }
 
 #tentang strong {
-    color: var(--primary-color); /* Penekanan biru */
+    color: var(--primary-color);
     font-weight: 600;
 }
 
 /* Skills Section */
 .skills-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); /* Ukuran grid lebih fleksibel */
-    gap: 30px; /* Jarak antar item skill */
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
     text-align: left;
 }
 
 .skill-item {
-    background: var(--background-light); /* Background item skill sedikit lebih gelap dari card */
+    background: var(--background-light);
     padding: 30px;
     border-radius: 8px;
     box-shadow: 0 3px 10px var(--shadow-light);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-top: 5px solid var(--secondary-color); /* Border atas teal sebagai aksen */
+    border-top: 5px solid var(--secondary-color);
     color: var(--text-dark);
 }
 
@@ -233,7 +209,7 @@ section h2::after {
 
 .skill-item h3 {
     font-family: 'Montserrat', sans-serif;
-    color: var(--primary-color); /* Heading item skill biru */
+    color: var(--primary-color);
     margin-top: 0;
     margin-bottom: 20px;
     border-bottom: 1px dashed var(--border-light);
@@ -246,7 +222,7 @@ section h2::after {
 }
 
 .skill-item h3 .fas, .skill-item h3 .fab {
-    color: var(--secondary-color); /* Ikon di heading item teal */
+    color: var(--secondary-color);
     font-size: 1.1em;
 }
 
@@ -266,7 +242,7 @@ section h2::after {
 .skill-item ul li .fas, .skill-item ul li .fab {
     font-size: 1.2em;
     margin-right: 12px;
-    color: var(--primary-color); /* Ikon di list item biru */
+    color: var(--primary-color);
 }
 
 /* Contact Section */
@@ -289,20 +265,20 @@ section h2::after {
 }
 
 .contact-list li a:hover {
-    color: var(--dark-blue); /* Gunakan dark-blue dari dark theme jika ingin lebih gelap, atau primary-color:hover */
+    color: var(--dark-blue);
     text-decoration: underline;
 }
 
 .contact-list li .fas, .contact-list li .fab {
     font-size: 1.4em;
     margin-right: 15px;
-    color: var(--secondary-color); /* Ikon kontak teal */
+    color: var(--secondary-color);
 }
 
 /* Footer Styles */
 footer {
-    background: var(--text-dark); /* Background footer gelap */
-    color: var(--background-card); /* Teks footer putih */
+    background: var(--text-dark);
+    color: var(--background-card);
     text-align: center;
     padding: 25px 0;
     margin-top: 50px;
@@ -314,8 +290,8 @@ footer {
 .reveal {
     position: relative;
     opacity: 0;
-    transform: translateY(30px); /* Jarak awal sedikit lebih jauh */
-    transition: opacity 0.7s ease-out, transform 0.7s ease-out; /* Transisi lebih lambat dan halus */
+    transform: translateY(30px);
+    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
 }
 
 .reveal.active {
@@ -332,31 +308,17 @@ footer {
     }
 
     .header-content {
-        flex-direction: column;
+        flex-direction: column; /* Stack vertikal */
         text-align: center;
         gap: 15px;
     }
 
-    .profile-info {
-        flex-direction: column;
-        text-align: center;
+    .site-title {
+        font-size: 1.5em; /* Ukuran judul lebih kecil di mobile */
     }
 
-    .profile-pic {
-        width: 80px;
-        height: 80px;
-    }
-
-    .text-info {
-        text-align: center;
-    }
-
-    header h1 {
-        font-size: 2em;
-    }
-
-    .tagline {
-        font-size: 0.9em;
+    main {
+        padding-top: 120px; /* Sesuaikan lagi jika header masih tertutup di mobile */
     }
 
     .main-nav ul {
@@ -406,4 +368,4 @@ footer {
     .contact-list li {
         font-size: 1em;
     }
-        }
+}
