@@ -1,379 +1,162 @@
-/* Import Google Fonts - Sudah ada di HTML */
-
-/* Variabel CSS untuk konsistensi warna */
+/* Definisi Variabel Warna untuk Tema */
 :root {
-    --primary-color: #007bff; /* Biru terang sebagai aksen utama */
-    --secondary-color: #00bcd4; /* Teal sebagai aksen sekunder */
-    --background-light: #f4f7fa; /* Latar belakang sangat terang */
-    --background-card: #ffffff; /* Putih bersih untuk kartu/section */
-    --text-dark: #333333; /* Teks gelap */
-    --text-light: #666666; /* Teks abu-abu lebih terang */
-    --border-light: #e0e0e0; /* Border abu-abu terang */
-    --shadow-light: rgba(0, 0, 0, 0.1); /* Bayangan tipis */
-    --shadow-hover: rgba(0, 0, 0, 0.15); /* Bayangan sedikit lebih gelap saat hover */
+    --bg-dark: #121212;
+    --primary-blue: #007BFF;
+    --card-bg: #1e1e1e;
+    --text-primary: #e0e0e0;
+    --text-secondary: #a0a0a0;
+    --border-color: #333;
+    --shadow-color: rgba(0, 0, 0, 0.4);
 }
 
-/* General Body Styles */
-body {
-    font-family: 'Poppins', sans-serif;
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    line-height: 1.8;
-    color: var(--text-dark); /* Warna teks umum gelap */
-    background-color: var(--background-light); /* Latar belakang terang */
-    scroll-behavior: smooth; /* Animasi scroll halus */
-    -webkit-overflow-scrolling: touch; /* Scroll yang lebih halus di iOS */
-    overflow-x: hidden; /* Mencegah scroll horizontal */
 }
 
-.container {
-    width: 90%;
-    max-width: 1100px;
-    margin: auto;
-    overflow: hidden;
-    padding: 30px 0;
-}
-
-/* Header Styles - Fixed dan Profesional */
-header {
-    background: var(--background-card); /* Latar belakang header putih */
-    color: var(--text-dark);
-    padding: 25px 0; /* Padding vertikal yang pas untuk tinggi header */
-    box-shadow: 0 4px 15px var(--shadow-light); /* Bayangan halus */
-    border-bottom: 1px solid var(--border-light); /* Garis bawah halus */
-    
-    position: fixed; /* KUNCI: Membuat header tetap di viewport */
-    width: 100%; /* Agar memenuhi lebar layar */
-    top: 0; /* Menempel di bagian atas */
-    left: 0; /* Menempel di bagian kiri */
-    z-index: 9999; /* Pastikan di atas elemen lain */
-    box-sizing: border-box; /* Agar padding tidak menambah lebar/tinggi elemen */
-}
-
-.header-content {
-    display: flex;
-    justify-content: space-between; /* Branding kiri, Navigasi kanan */
-    align-items: center;
-    flex-wrap: wrap; /* Untuk responsivitas */
-    gap: 20px; /* Jarak antar item */
-    text-align: left; /* Teks dalam branding rata kiri */
-}
-
-.header-branding h1 {
-    font-family: 'Montserrat', sans-serif;
-    font-size: 2.8em; /* Ukuran font gagah untuk nama */
-    font-weight: 700; /* Tebal */
-    color: var(--primary-color); /* Warna biru untuk nama */
-    margin: 0; /* Hapus margin default h1 */
-    line-height: 1.2; /* Jarak baris yang pas */
-}
-
-.header-branding .tagline {
-    font-size: 1.1em; /* Ukuran tagline */
-    font-weight: 400;
-    color: var(--text-light); /* Warna abu-abu untuk tagline */
-    margin: 5px 0 0 0; /* Margin atas untuk jarak dari nama */
-}
-
-/* PENTING: Mengatur ruang di bawah header agar konten tidak tertutup */
-main {
-    /* Padding ini memberikan ruang aman yang cukup besar di bawah header. */
-    padding-top: 160px; /* Nilai yang diperbesar untuk memastikan tidak ada tumpang tindih */
-    /* Jika masih terlihat tertutup, coba tambahkan lagi (misal 170px, 180px). */
-    /* Jika terlalu banyak spasi kosong di bawah header, kurangi (misal 150px, 140px). */
-}
-
-.main-nav ul {
-    padding: 0;
-    list-style: none;
-    display: flex;
-    gap: 20px; /* Jarak antar item navigasi */
-    flex-wrap: wrap;
-    justify-content: center; /* Memusatkan di mobile */
-}
-
-.main-nav ul li a {
-    color: var(--text-dark); /* Warna teks navigasi gelap */
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1em;
-    padding: 8px 12px;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-    position: relative;
-    overflow: hidden;
-}
-
-.main-nav ul li a::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: var(--primary-color);
-    transform: translateX(-100%);
-    transition: transform 0.3s ease-out;
-}
-
-.main-nav ul li a:hover {
-    color: var(--primary-color);
-    background-color: rgba(0, 123, 255, 0.05);
-}
-
-.main-nav ul li a:hover::after {
-    transform: translateX(0);
-}
-
-
-/* Section Styles - Desain Kartu Modern */
-section.card {
-    padding: 60px;
-    margin-top: 40px;
-    margin-bottom: 40px;
-    background: var(--background-card);
-    border-radius: 12px;
-    box-shadow: 0 8px 25px var(--shadow-light);
-    overflow: hidden;
-    border: 1px solid var(--border-light);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-section.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 12px 30px var(--shadow-hover);
-}
-
-section h2 {
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-    margin-bottom: 50px;
-    color: var(--primary-color);
-    font-size: 3em;
-    font-weight: 700;
-    position: relative;
-    padding-bottom: 15px;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-}
-
-section h2::after {
-    content: '';
-    position: absolute;
-    left: 50%;
-    bottom: 0;
-    transform: translateX(-50%);
-    width: 100px;
-    height: 4px;
-    background-color: var(--primary-color);
-    border-radius: 2px;
-}
-
-/* Tentang Saya Section */
-#tentang p {
-    font-size: 1.1em;
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto 20px;
-    color: var(--text-light);
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    padding-top: 130px; /* Ruang untuk header */
     line-height: 1.7;
 }
 
-#tentang strong {
-    color: var(--primary-color);
-    font-weight: 600;
+/* Header Tetap */
+.fixed-header {
+    background-color: var(--card-bg);
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    padding: 15px 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px var(--shadow-color);
+    border-bottom: 1px solid var(--border-color);
 }
 
-/* Skills Section */
-.skills-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    text-align: left;
+.fixed-header h1 {
+    font-size: 1.7em;
+    font-weight: 700;
+    color: #fff;
 }
 
-.skill-item {
-    background: var(--background-light);
-    padding: 30px;
-    border-radius: 8px;
-    box-shadow: 0 3px 10px var(--shadow-light);
+.fixed-header .title {
+    margin: 4px 0 15px 0;
+    color: var(--text-secondary);
+    font-size: 0.9em;
+    font-weight: 300;
+}
+
+.fixed-header nav a {
+    text-decoration: none;
+    color: var(--text-secondary);
+    font-weight: 400;
+    margin: 0 15px;
+    transition: color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.fixed-header nav a:hover {
+    color: var(--primary-blue);
+    transform: translateY(-2px);
+}
+
+/* Konten Utama */
+.container {
+    padding: 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.profile-card {
+    background-color: var(--card-bg);
+    padding: 2em;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 25px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
-    border-top: 5px solid var(--secondary-color);
-    color: var(--text-dark);
 }
 
-.skill-item:hover {
+.profile-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 6px 15px var(--shadow-hover);
+    box-shadow: 0 8px 16px var(--shadow-color);
 }
 
-.skill-item h3 {
-    font-family: 'Montserrat', sans-serif;
-    color: var(--primary-color);
+.profile-card h2 {
+    font-weight: 600;
+    color: #fff;
+    border-bottom: 2px solid var(--primary-blue);
+    padding-bottom: 10px;
     margin-top: 0;
     margin-bottom: 20px;
-    border-bottom: 1px dashed var(--border-light);
-    padding-bottom: 10px;
-    font-size: 1.8em;
-    font-weight: 600;
     display: flex;
     align-items: center;
-    gap: 10px;
 }
 
-.skill-item h3 .fas, .skill-item h3 .fab {
-    color: var(--secondary-color);
-    font-size: 1.1em;
-}
-
-.skill-item ul {
-    list-style: none;
-    padding: 0;
-}
-
-.skill-item ul li {
-    margin-bottom: 12px;
-    font-size: 1em;
-    display: flex;
-    align-items: center;
-    color: var(--text-light);
-}
-
-.skill-item ul li .fas, .skill-item ul li .fab {
-    font-size: 1.2em;
+.profile-card h2 .icon {
     margin-right: 12px;
-    color: var(--primary-color);
-}
-
-/* Contact Section */
-.contact-list {
-    list-style: none;
-    padding: 0;
-    text-align: center;
-}
-
-.contact-list li {
-    margin-bottom: 18px;
     font-size: 1.2em;
 }
 
-.contact-list li a {
-    color: var(--primary-color);
+/* Minat & Keahlian */
+.skills-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 30px;
+}
+
+.skill-box {
+    flex: 1;
+    min-width: 250px;
+}
+
+.skill-box h3 {
+    color: var(--primary-blue);
+    margin-bottom: 15px;
+}
+
+.skill-box ul {
+    list-style: none;
+    padding: 0;
+}
+
+.skill-box ul li {
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+
+.skill-box .icon {
+    margin-right: 10px;
+}
+
+/* Tombol Kontak */
+.contact-button {
+    display: inline-block;
+    background-color: var(--primary-blue);
+    color: #fff;
+    padding: 12px 25px;
     text-decoration: none;
-    transition: color 0.3s ease, text-decoration 0.3s ease;
-    font-weight: 500;
-}
-
-.contact-list li a:hover {
-    color: var(--primary-color); /* Warna sama saat hover */
-    text-decoration: underline;
-}
-
-.contact-list li .fas, .contact-list li .fab {
-    font-size: 1.4em;
-    margin-right: 15px;
-    color: var(--secondary-color);
-}
-
-/* Footer Styles */
-footer {
-    background: var(--text-dark);
-    color: var(--background-card);
+    border-radius: 8px;
+    font-weight: 600;
     text-align: center;
-    padding: 25px 0;
-    margin-top: 50px;
-    box-shadow: 0 -3px 10px var(--shadow-light);
-    font-size: 0.85em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
 }
 
-/* Scroll-reveal effect (JavaScript related) */
-.reveal {
-    position: relative;
-    opacity: 0;
-    transform: translateY(30px);
-    transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+.contact-button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
 }
 
-.reveal.active {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    .container {
-        width: 95%;
-        padding: 15px 0;
-    }
-
-    .header-content {
-        flex-direction: column; /* Stack vertikal */
-        text-align: center;
-        gap: 15px;
-    }
-
-    .header-branding {
-        text-align: center; /* Pastikan rata tengah di mobile */
-    }
-
-    .header-branding h1 {
-        font-size: 2em; /* Ukuran nama lebih kecil di mobile */
-    }
-
-    .header-branding .tagline {
-        font-size: 0.9em; /* Ukuran tagline lebih kecil di mobile */
-    }
-
-    main {
-        padding-top: 130px; /* Sesuaikan padding-top untuk mobile jika perlu */
-    }
-
-    .main-nav ul {
-        gap: 12px;
-    }
-
-    .main-nav ul li a {
-        font-size: 0.9em;
-        padding: 6px 10px;
-    }
-
-    section.card {
-        padding: 30px;
-        margin-top: 25px;
-        margin-bottom: 25px;
-    }
-
-    section h2 {
-        font-size: 2.2em;
-        margin-bottom: 30px;
-        padding-bottom: 10px;
-    }
-
-    section h2::after {
-        width: 70px;
-        height: 3px;
-    }
-
-    #tentang p {
-        font-size: 1em;
-        padding: 0 5px;
-    }
-
-    .skills-grid {
-        grid-template-columns: 1fr;
-        gap: 20px;
-    }
-
-    .skill-item {
-        padding: 20px;
-    }
-
-    .skill-item h3 {
-        font-size: 1.4em;
-    }
-
-    .contact-list li {
-        font-size: 1em;
-    }
-    }
+/* Footer */
+footer {
+    text-align: center;
+    padding: 25px;
+    margin-top: 40px;
+    color: var(--text-secondary);
+    font-size: 0.9em;
+    border-top: 1px solid var(--border-color);
+        }
