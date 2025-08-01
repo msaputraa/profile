@@ -1,12 +1,12 @@
-/* Definisi Variabel Warna untuk Tema */
+/* Definisi Variabel Warna untuk Tema "Cyber Neon" */
 :root {
-    --bg-dark: #121212;
-    --primary-blue: #007BFF;
-    --card-bg: #1e1e1e;
-    --text-primary: #e0e0e0;
-    --text-secondary: #a0a0a0;
-    --border-color: #333;
-    --shadow-color: rgba(0, 0, 0, 0.4);
+    --bg-dark: #0a0a1a;
+    --card-bg: rgba(20, 20, 40, 0.6);
+    --border-glow: rgba(0, 191, 255, 0.5);
+    --accent-gradient: linear-gradient(90deg, #00BFFF, #8A2BE2);
+    --text-primary: #f0f0f0;
+    --text-secondary: #a0a0c0;
+    --shadow-color: rgba(0, 0, 0, 0.5);
 }
 
 * {
@@ -16,16 +16,19 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
     background-color: var(--bg-dark);
     color: var(--text-primary);
-    padding-top: 130px; /* Ruang untuk header */
-    line-height: 1.7;
+    padding-top: 120px;
+    background-image: radial-gradient(circle at 10% 20%, rgba(138, 43, 226, 0.1), transparent 30%),
+                      radial-gradient(circle at 90% 80%, rgba(0, 191, 255, 0.1), transparent 30%);
+    background-attachment: fixed;
 }
 
-/* Header Tetap */
+/* Header */
 .fixed-header {
-    background-color: var(--card-bg);
+    background-color: rgba(10, 10, 26, 0.8);
+    backdrop-filter: blur(10px);
     width: 100%;
     position: fixed;
     top: 0;
@@ -33,64 +36,59 @@ body {
     z-index: 1000;
     padding: 15px 20px;
     text-align: center;
-    box-shadow: 0 4px 12px var(--shadow-color);
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .fixed-header h1 {
-    font-size: 1.7em;
+    font-size: 1.6em;
     font-weight: 700;
-    color: #fff;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .fixed-header .title {
     margin: 4px 0 15px 0;
     color: var(--text-secondary);
     font-size: 0.9em;
-    font-weight: 300;
 }
 
 .fixed-header nav a {
     text-decoration: none;
     color: var(--text-secondary);
-    font-weight: 400;
     margin: 0 15px;
-    transition: color 0.3s ease, transform 0.3s ease;
-    display: inline-block;
+    transition: color 0.3s ease;
 }
 
 .fixed-header nav a:hover {
-    color: var(--primary-blue);
-    transform: translateY(-2px);
+    color: #fff;
 }
 
 /* Konten Utama */
 .container {
     padding: 20px;
-    max-width: 800px;
+    max-width: 750px;
     margin: 0 auto;
 }
 
 .profile-card {
-    background-color: var(--card-bg);
-    padding: 2em;
-    border-radius: 12px;
-    border: 1px solid var(--border-color);
-    margin-bottom: 25px;
+    background: var(--card-bg);
+    padding: 2.5em;
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin-bottom: 30px;
+    box-shadow: 0 8px 32px var(--shadow-color);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .profile-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 8px 16px var(--shadow-color);
+    box-shadow: 0 0 20px var(--border-glow);
 }
 
 .profile-card h2 {
     font-weight: 600;
     color: #fff;
-    border-bottom: 2px solid var(--primary-blue);
-    padding-bottom: 10px;
-    margin-top: 0;
     margin-bottom: 20px;
     display: flex;
     align-items: center;
@@ -98,65 +96,75 @@ body {
 
 .profile-card h2 .icon {
     margin-right: 12px;
-    font-size: 1.2em;
+    background: var(--accent-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: 1.4em;
 }
 
-/* Minat & Keahlian */
+.profile-card p, .profile-card li {
+    line-height: 1.8;
+    color: var(--text-secondary);
+}
+
+/* Keahlian */
 .skills-container {
     display: flex;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 20px;
 }
 
-.skill-box {
-    flex: 1;
-    min-width: 250px;
+.skill-box { flex: 1; min-width: 200px; }
+.skill-box h3 { color: #fff; margin-bottom: 15px; }
+.skill-box ul { list-style: none; padding: 0; }
+.skill-box ul li { margin-bottom: 10px; color: var(--text-secondary); }
+.skill-box .icon { margin-right: 10px; }
+
+.tech-icons { display: flex; gap: 10px; }
+.tech-icon {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: 600;
+    font-size: 0.9em;
 }
 
-.skill-box h3 {
-    color: var(--primary-blue);
-    margin-bottom: 15px;
-}
-
-.skill-box ul {
-    list-style: none;
-    padding: 0;
-}
-
-.skill-box ul li {
-    margin-bottom: 10px;
-    display: flex;
-    align-items: center;
-}
-
-.skill-box .icon {
-    margin-right: 10px;
-}
-
-/* Tombol Kontak */
+/* Tombol */
 .contact-button {
     display: inline-block;
-    background-color: var(--primary-blue);
+    background: var(--accent-gradient);
     color: #fff;
-    padding: 12px 25px;
+    padding: 12px 30px;
     text-decoration: none;
     border-radius: 8px;
     font-weight: 600;
     text-align: center;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    margin-top: 15px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-size: 200% 100%;
 }
 
 .contact-button:hover {
-    background-color: #0056b3;
     transform: scale(1.05);
+    box-shadow: 0 0 15px var(--border-glow);
 }
 
 /* Footer */
 footer {
     text-align: center;
     padding: 25px;
-    margin-top: 40px;
     color: var(--text-secondary);
     font-size: 0.9em;
-    border-top: 1px solid var(--border-color);
-        }
+}
+
+/* Animasi saat Scroll */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.animate-on-scroll.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
