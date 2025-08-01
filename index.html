@@ -3,79 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mochamad Anugrah Saputra - Website Data Diri</title>
-    <link rel="stylesheet" href="style.css">
-    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <title>Mochammad Anugrah Saputra | Profile</title>
+    
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
-        <div class="container header-content">
-            <div class="header-branding">
-                <h1>Mochamad Anugrah Saputra</h1>
-                <p class="tagline">Siswa Kelas 8 MTs Darul Ulum Cimahpar</p>
-            </div>
-            
-            <nav class="main-nav">
-                <ul>
-                    <li><a href="#tentang">Tentang Saya</a></li>
-                    <li><a href="#minat">Minat & Keahlian</a></li>
-                    <li><a href="#kontak">Kontak</a></li>
-                </ul>
-            </nav>
-        </div>
+
+    <header class="fixed-header">
+        <h1>Mochammad Anugrah Saputra</h1>
+        <p class="title">Calon Ahli CyberSecurity & Web Developer</p>
+        <nav>
+            <a href="#tentang-saya">Tentang Saya</a>
+            <a href="#minat-keahlian">Keahlian</a>
+            <a href="#kontak-saya">Kontak</a>
+        </nav>
     </header>
 
-    <main>
-        <section id="tentang" class="container card reveal">
-            <h2>Tentang Saya</h2>
-            <p>Halo! Nama saya Mochamad Anugrah Saputra. Saya adalah seorang siswa kelas 8 di MTs Darul Ulum Cimahpar, Kota Bogor. Saya tinggal di Bogor, Jawa Barat, dan saya adalah anak terakhir dari 5 bersaudara.</p>
-            <p>Saya memiliki minat yang besar di dunia coding dan sangat antusias untuk belajar lebih banyak lagi. Cita-cita saya adalah menjadi seorang ahli CyberSecurity dan berkontribusi dalam menjaga keamanan digital.</p>
-            <p>Di waktu luang, saya suka bereksperimen di dunia maya dan bermain sepeda fixie.</p>
+    <main class="container">
+        <section id="tentang-saya" class="profile-card">
+            <h2><span class="icon">👤</span> TENTANG SAYA</h2>
+            <p>Halo! Saya Anugrah, seorang siswa kelas 8 dari Bogor yang sangat tertarik dengan dunia digital. Saya adalah anak terakhir dari 5 bersaudara dan memiliki semangat besar untuk belajar coding. Cita-cita saya adalah menjadi seorang ahli CyberSecurity handal.</p>
         </section>
 
-        <section id="minat" class="container card reveal">
-            <h2>Minat & Keahlian</h2>
-            <div class="skills-grid">
-                <div class="skill-item">
-                    <h3><i class="fas fa-heart"></i> Minat Saya</h3>
+        <section id="minat-keahlian" class="profile-card">
+            <h2><span class="icon">💡</span> MINAT & KEAHLIAN</h2>
+            <div class="skills-container">
+                <div class="skill-box">
+                    <h3>Minat Saya</h3>
                     <ul>
-                        <li><i class="fas fa-code"></i> Coding & Pemrograman</li>
-                        <li><i class="fas fa-shield-alt"></i> CyberSecurity</li>
-                        <li><i class="fas fa-network-wired"></i> Jaringan Komputer</li>
-                        <li><i class="fas fa-bicycle"></i> Bermain Sepeda Fixie</li>
-                        <li><i class="fas fa-globe"></i> Eksperimen di Dunia Maya</li>
+                        <li><span class="icon">💖</span> Coding & Pemrograman</li>
+                        <li><span class="icon">🛡️</span> CyberSecurity</li>
+                        <li><span class="icon">⛓️</span> Jaringan Komputer</li>
+                        <li><span class="icon">🚴</span> Bermain Sepeda Fixie</li>
                     </ul>
                 </div>
-                <div class="skill-item">
-                    <h3><i class="fas fa-laptop-code"></i> Keahlian Dasar</h3>
+                <div class="skill-box">
+                    <h3>Keahlian Teknis</h3>
                     <ul>
-                        <li>HTML</li>
-                        <li>CSS</li>
+                        <li>HTML5</li>
+                        <li>CSS3</li>
                         <li>JavaScript</li>
                     </ul>
                 </div>
             </div>
         </section>
 
-        <section id="kontak" class="container card reveal">
-            <h2>Kontak Saya</h2>
-            <p>Tertarik untuk ngobrol tentang coding atau CyberSecurity? Jangan ragu untuk menghubungi saya!</p>
-            <ul class="contact-list">
-                <li><i class="fab fa-instagram"></i> Instagram: <a href="https://www.instagram.com/msptraa12/" target="_blank">instagram.com/msptraa12</a></li>
-            </ul>
+        <section id="kontak-saya" class="profile-card">
+            <h2><span class="icon">✉️</span> HUBUNGI SAYA</h2>
+            <p>Tertarik untuk diskusi atau kolaborasi? Jangan ragu untuk menghubungi saya melalui media sosial.</p>
+            <a href="https://www.instagram.com/msptraa12" class="contact-button" target="_blank">Lihat Instagram</a>
         </section>
     </main>
 
     <footer>
-        <div class="container">
-            <p>&copy; 2025 Mochamad Anugrah Saputra. Hak Cipta Dilindungi Undang-Undang.</p>
-        </div>
+        <p>© 2025 Mochammad Anugrah Saputra. Dibuat dengan semangat dari Bogor.</p>
     </footer>
 
     <script src="script.js"></script>
 </body>
-    </html>
+            </html>
